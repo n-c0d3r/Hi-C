@@ -1,7 +1,14 @@
 
 
-var ToScopes = function(linesOfFiles){
 
+
+
+var ToScopes = function(scope){
+    var result=[];
+
+    
+
+    return result;
 }
 
 

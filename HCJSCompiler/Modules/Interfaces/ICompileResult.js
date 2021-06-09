@@ -3,7 +3,7 @@ module.exports=class{
         this.cppCompiledDatas=[];
         this.cppBuildDirPath="";
         this.linesOfFiles=[];
-        this.fileScopes;
+        this.filesScopes=[];
     }
 
 

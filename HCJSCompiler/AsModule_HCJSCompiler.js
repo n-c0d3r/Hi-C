@@ -31,7 +31,7 @@ var ImportParsers=function(path){
     return require(__dirname+"/Modules/Parsers/"+path);
 }
 
-var ToScopes=ImportParsers("ToScopes");
+var LinesOfFilesToScopes=ImportParsers("LinesOfFilesToScopes");
 
 
 
@@ -77,7 +77,8 @@ module.exports=class{
         
 
         //GetScopes
-        result.fileScopes=ToScopes(result.linesOfFiles);
+        var scopesData=LinesOfFilesToScopes(result.linesOfFiles);
+        result.filesScopes=scopesData.filesScopes;
         
 
         return result;
