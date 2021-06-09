@@ -1,5 +1,5 @@
 
-var IScope=require('../Interfaces/IScope');
+var Scopes=require('../Scopes/Scopes');
 
 var IScopesData=require('../Interfaces/IScopesData');
 
@@ -9,12 +9,15 @@ var ToScope=require('./ToScopes');
 var LinesOfFilesToScopes = function(linesOfFiles){
     var filesScopes=[];
 
-    var globalScope=new IScope();
+    var globalScope=new Scopes.GlobalScope();
     globalScope.isGlobal=true;
 
     //Create rootScopes;
     for(var i=0;i<linesOfFiles.length;i++){
-        filesScopes[i]=new IScope();
+        filesScopes[i]=new Scopes.FileScope();
+        filesScopes[i].parent=globalScope;
+        filesScopes[i].lines=linesOfFiles[i];
+
     }
 
     result = new IScopesData();

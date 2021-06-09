@@ -48,6 +48,11 @@ module.exports=class{
         this.settings=new ICompilerSettings();
     }
 
+    SetOS(os){
+        if(os=="window"){
+            this.settings.lineBreakChar="\r\n";
+        }
+    }
 
     Read(){
         var sourceData=new ISourceData();
@@ -72,13 +77,15 @@ module.exports=class{
 
 
         //Tolines
-        var fileDatas = ToLinesForAll(sourceData.fileDatas);
+        var fileDatas = ToLinesForAll(sourceData.fileDatas,this.settings.lineBreakChar);
         result.linesOfFiles = fileDatas;
         
 
         //GetScopes
         var scopesData=LinesOfFilesToScopes(result.linesOfFiles);
         result.scopesData=scopesData;
+
+        
 
         return result;
     }

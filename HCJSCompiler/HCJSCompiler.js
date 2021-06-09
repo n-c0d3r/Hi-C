@@ -8,6 +8,9 @@ var compiler=new (require(__dirname+"/asModule_HCJSCompiler"))();
 //Setup Compiler
 compiler.settings.projectPath=projectPath;
 
+//Set OS
+compiler.SetOS("window");
+
 //Read Project Sources
 compiler.Read();
 

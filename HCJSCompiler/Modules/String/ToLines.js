@@ -1,3 +1,3 @@
-module.exports=function(string){
-    return string.split('\n');
+module.exports=function(string,lineBreakChar){
+    return string.split(lineBreakChar);
 }
