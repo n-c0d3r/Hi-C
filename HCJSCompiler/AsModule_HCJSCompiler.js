@@ -5,7 +5,7 @@ var ImportInterface=function(path){
     return require(__dirname+"/Modules/Interfaces/"+path);
 }
 
-var ICompileResult=ImportInterface("ICompileResult");
+var ICPPCompileResult=ImportInterface("ICPPCompileResult");
 
 var ISourceData=ImportInterface("ISourceData");  
 
@@ -66,7 +66,7 @@ module.exports=class{
 
 
     CPPCompile(){
-        let result=new ICompileResult();
+        let result=new ICPPCompileResult();
 
         var sourceData=this.sourceData;
 
@@ -78,8 +78,7 @@ module.exports=class{
 
         //GetScopes
         var scopesData=LinesOfFilesToScopes(result.linesOfFiles);
-        result.filesScopes=scopesData.filesScopes;
-        
+        result.scopesData=scopesData;
 
         return result;
     }
